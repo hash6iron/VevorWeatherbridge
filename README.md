@@ -71,10 +71,36 @@ The service now listens on port `80` for requests to `/weatherstation/updateweat
 
 
 ---
+## Network architecture and DNS redirection
 
-## Station Configuration
+You can redirect the weather station’s upload URL (`rtupdate.wunderground.com`) through aditional WiFi AP if your current WiFi AP or router doesn`t permit DNS redirection. 
+See this proposal below with Raspberry Pi and additional WiFi Access Point that works fine and not need Pi-hole.
 
-Redirect the weather station’s upload URL (`rtupdate.wunderground.com`) to the IP of your server running this container. The simplest way is using Pi-hole or custom DNS on your router.
+<img width="1280" height="720" alt="vevor_architecture" src="https://github.com/user-attachments/assets/3d7527a2-2d09-4bea-868d-87c0a308098c" />
+
+In Raspberry Pi server install DNSMASQ with apt and set the following file with DNS redirection.
+```
+sudo nano /etc/dnsmasq.d/wunderground-redirect.conf
+```
+
+And include this line
+Note: IP 192.168.2.100 is the RaspberryPI Static IP
+```
+address=/rdupdate.wunderground.com/192.168.2.100
+```
+
+Save and close. 
+
+Now restart DNSMASQ.
+```
+sudo systemctl restart dnsmasq
+```
+Then you can see that Vevor talk with your server instead of wu server. You are ready for vevor bridge execution! (then step the following section below "Another one ...")
+
+
+## Another one for DNS redirection.
+
+For redirect the weather station’s upload URL (`rtupdate.wunderground.com`) to the IP of your server running this container, other way is using Pi-hole or custom DNS on your router.
 
 Example DNS override:
 
