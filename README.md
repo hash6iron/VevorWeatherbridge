@@ -87,7 +87,7 @@ Example:
 ### 3. Run
 
 ```bash
-nohup python weatherstation.py &
+sudo nohup python weatherstation.py &
 ```
 
 The service now listens on port `80` for requests to `/weatherstation/updateweatherstation.php`.
