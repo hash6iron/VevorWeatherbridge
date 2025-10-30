@@ -1,6 +1,6 @@
-# Weather Station to Home Assistant Relay (Dockerized Python Version)
+# Weather Station to Home Assistant Relay
 
-This project provides a lightweight, **Dockerized Python microservice** for ingesting weather data from a VEVOR 7-in-1 Wi-Fi Solar Self-Charging Weather Station (Model YT60234, or any station sending data in Weather Underground format) and forwarding it to Home Assistant via **MQTT**.
+This project provides a python script solution for ingesting weather data from a VEVOR 7-in-1 Wi-Fi Solar Self-Charging Weather Station (Model YT60234, or any station sending data in Weather Underground format) and forwarding it to Home Assistant via **MQTT**.
 
 ---
 
@@ -10,7 +10,6 @@ This project provides a lightweight, **Dockerized Python microservice** for inge
 - Converts measurements to **metric** or **imperial** units based on the `UNITS` environment variable
 - Publishes sensor data to Home Assistant via MQTT using the auto-discovery format
 - All sensors appear under one device in Home Assistant
-- Dockerized for simple deployment anywhere
 - Responds with `success` so the weather station doesn’t retry
 
 ---
@@ -26,7 +25,7 @@ cd weatherstation-ha-relay
 
 ### 2. Configure the environment
 
-Edit the `docker-compose.yml` file and set the following variables:
+Edit the `weatherstation.py` file and set the following variables at the beginnig of the file.
 
 - `MQTT_HOST`: Hostname or IP of your MQTT broker
 - `MQTT_PORT`: Broker port (default `1883`)
@@ -41,8 +40,7 @@ Edit the `docker-compose.yml` file and set the following variables:
 
 Example:
 
-```yaml
-environment:
+```
   TZ: Europe/Berlin
   MQTT_HOST: 192.168.1.100
   MQTT_PORT: 1883
@@ -61,10 +59,10 @@ environment:
   WU_PASSWORD: yourWUpass
 ```
 
-### 3. Build and run
+### 3. Run
 
 ```bash
-docker-compose up --build -d
+nohup python weatherstation.py &
 ```
 
 The service now listens on port `80` for requests to `/weatherstation/updateweatherstation.php`.
