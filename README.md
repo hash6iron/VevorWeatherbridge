@@ -154,22 +154,6 @@ The following sensors are created or updated and will appear under the device sp
 
 You can use these entities directly in your Home Assistant dashboards or automations.
 
-
----
-
-## Troubleshooting
-
-- Ensure the container is reachable on port 80 from your network.
-- Check that your DNS or Pi-hole setup correctly redirects the WU domain.
-- Verify your MQTT broker settings.
-- Review logs with:
-
-```bash
-docker-compose logs -f
-```
-
-Add logging or print statements to `weatherstation.py` for further debugging.
-
 ---
 
 ## License
