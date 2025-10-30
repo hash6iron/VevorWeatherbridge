@@ -16,8 +16,17 @@ This project provides a python script solution for ingesting weather data from a
 
 ## Quickstart
 
-### 1. Clone the repository
-
+### 1. Prepare Linux OS (Debian)
+```bash
+sudo apt-get update
+sudo apt-get install git
+sudo apt-get install python3-pytz
+sudo apt-get install python3-flask
+sudo apt-get install python3-requests
+sudo apt-get install python3-paho-mqtt
+sudo apt-get install python3-dnspython
+sudo apt-get install dnsmasq
+```
 ```bash
 git clone https://github.com/hash6iron/VevorWeatherbridge.git
 cd weatherstation-ha-relay
@@ -94,20 +103,6 @@ Now restart DNSMASQ.
 sudo systemctl restart dnsmasq
 ```
 Then you can see that Vevor talk with your server instead of wu server. You are ready for vevor bridge execution! (then step the following section below "Another one ...")
-
-
-## Another one for DNS redirection.
-
-For redirect the weather station’s upload URL (`rtupdate.wunderground.com`) to the IP of your server running this container, other way is using Pi-hole or custom DNS on your router.
-
-Example DNS override:
-
-```
-rtupdate.wunderground.com    <your-server-ip>
-```
-**Note:** If your router has DNS rebind protection enabled, you must allow this domain in your router settings when overriding DNS with Pi-hole.
-
-On the weather station, enable Weather Underground uploads with any station ID/key.
 
 ---
 
