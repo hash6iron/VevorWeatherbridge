@@ -85,7 +85,7 @@ See this proposal below with Raspberry Pi and additional WiFi Access Point that 
 
 <img width="1280" height="720" alt="vevor_architecture" src="https://github.com/user-attachments/assets/3d7527a2-2d09-4bea-868d-87c0a308098c" />
 
-In Raspberry Pi server install DNSMASQ with apt and set the following file with DNS redirection.
+Set the following file with DNS redirection.
 ```
 sudo nano /etc/dnsmasq.d/wunderground-redirect.conf
 ```
