@@ -25,7 +25,9 @@ WU_PASSWORD = "WU_PASSWORD"
 
 app = Flask(__name__)
 
-mqtt_client = mqtt.Client()
+#mqtt_client = mqtt.Client() #For paho-mqtt version < 2.0.0
+mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+
 if MQTT_USER:
     mqtt_client.username_pw_set(MQTT_USER, MQTT_PASSWORD)
 mqtt_client.connect(MQTT_HOST, MQTT_PORT, 60)
