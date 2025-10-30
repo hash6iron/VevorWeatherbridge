@@ -27,6 +27,22 @@ sudo apt-get install python3-paho-mqtt
 sudo apt-get install python3-dnspython
 sudo apt-get install dnsmasq
 ```
+Set static IP
+```bash
+nano sudo nano /etc/dhcpcd.conf
+```
+
+Go to the bottom file and add IP information up to your network.
+```bash
+interface eth0
+metric 300
+static ip_address=192.168.0.40/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
+```
+reboot!
+
+Clone git-hub repo
 ```bash
 git clone https://github.com/hash6iron/VevorWeatherbridge.git
 cd weatherstation-ha-relay
