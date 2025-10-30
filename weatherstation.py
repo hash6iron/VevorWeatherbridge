@@ -8,20 +8,20 @@ import requests
 import dns.resolver
 
 # MQTT settings
-MQTT_HOST = os.environ.get("MQTT_HOST", "localhost")
-MQTT_PORT = int(os.environ.get("MQTT_PORT", 1883))
-MQTT_USER = os.environ.get("MQTT_USER")
-MQTT_PASSWORD = os.environ.get("MQTT_PASSWORD")
-MQTT_PREFIX = os.environ.get("MQTT_PREFIX", "homeassistant")
-DEVICE_ID = os.environ.get("DEVICE_ID", "weather_station")
-DEVICE_NAME = os.environ.get("DEVICE_NAME", "Weather Station")
-DEVICE_MANUFACTURER = os.environ.get("DEVICE_MANUFACTURER", "VEVOR")
-DEVICE_MODEL = os.environ.get("DEVICE_MODEL", "7-in-1 Weather Station")
-TIMEZONE = os.environ.get("TZ", "Europe/Berlin")
-UNITS = os.environ.get("UNITS", "metric").lower()
-WU_FORWARD = os.environ.get("WU_FORWARD", "false").lower() == "true"
-WU_USERNAME = os.environ.get("WU_USERNAME")
-WU_PASSWORD = os.environ.get("WU_PASSWORD")
+MQTT_HOST = "localhost"
+MQTT_PORT = 1883
+MQTT_USER = "MQTT_USER"
+MQTT_PASSWORD = "MQTT_PASSWORD"
+MQTT_PREFIX = "MQTT_PREFIX"
+DEVICE_ID = "weather_station"
+DEVICE_NAME = "Weather Station"
+DEVICE_MANUFACTURER = "VEVOR"
+DEVICE_MODEL = "7-in-1 Weather Station"
+TIMEZONE = "Europe/Berlin"
+UNITS = "metric"
+WU_FORWARD = "true"
+WU_USERNAME = "WU_USERNAME"
+WU_PASSWORD = "WU_PASSWORD"
 
 app = Flask(__name__)
 
