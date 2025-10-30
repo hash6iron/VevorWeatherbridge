@@ -19,7 +19,7 @@ This project provides a python script solution for ingesting weather data from a
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/C9H13NO3-dev/weatherstation-ha-relay.git
+git clone https://github.com/hash6iron/VevorWeatherbridge.git
 cd weatherstation-ha-relay
 ```
 
