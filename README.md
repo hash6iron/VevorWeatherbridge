@@ -109,7 +109,7 @@ sudo nano /etc/dnsmasq.d/wunderground-redirect.conf
 And include this line
 Note: IP 192.168.2.100 is the RaspberryPI Static IP
 ```
-address=/rdupdate.wunderground.com/192.168.2.100
+address=/wunderground.com/192.168.2.100
 ```
 
 Save and close. 
@@ -117,6 +117,18 @@ Save and close.
 Now restart DNSMASQ.
 ```
 sudo systemctl restart dnsmasq
+```
+Ensure that, /etc/resolv.conf is like below (nothing about 192.168.2.100 - our weather script server)
+```
+..
+nameserver 192.168.2.1
+..
+```
+Ensure that, /etc/hosts is like below (nothing about 192.168.2.100 - our weather script server)
+```
+..
+127.0.1.1       WEATHER
+..
 ```
 Then you can see that Vevor talk with your server instead of wu server. You are ready for vevor bridge execution! (then step the following section below "Another one ...")
 
