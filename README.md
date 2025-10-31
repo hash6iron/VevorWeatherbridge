@@ -99,6 +99,11 @@ The service now listens on port `80` for requests to `/weatherstation/updateweat
 You can redirect the weather station’s upload URL (`rtupdate.wunderground.com`) through aditional WiFi AP if your current WiFi AP or router doesn`t permit DNS redirection. 
 See this proposal below with Raspberry Pi and additional WiFi Access Point that works fine and not need Pi-hole.
 
+In the image below.
+- Our weather script server on RaspBerry Pi - 192.168.2.100
+- WAN Router - 192.168.2.1
+- Weather router - 192.168.2.2
+
 <img width="1280" height="720" alt="vevor_architecture" src="https://github.com/user-attachments/assets/3d7527a2-2d09-4bea-868d-87c0a308098c" />
 
 Set the following file with DNS redirection.
